@@ -40,5 +40,10 @@
   <%= @ride.cost %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= cl_image_tag(@ride.image.key, :width=>283, :crop=>"scale", cloud_name: 'jcbslmn') %>
+</p>
+
 <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <%= link_to 'Back', rides_path %>
