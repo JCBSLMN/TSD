@@ -40,12 +40,12 @@
 
   <div class="field">
     <%= form.label :duration %>
-    <%= form.text_field :duration %>
+    <%= form.number_field :duration, step: 0.25, min: 0 %>
   </div>
 
   <div class="field">
     <%= form.label :cost %>
-    <%= form.text_field :cost %>
+    <%= form.number_field :cost, step: 10, min: 0 %>
   </div>
 
   <div class="field">
