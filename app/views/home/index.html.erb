@@ -1,0 +1,19 @@
+
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to The Sunday Drive!</h1>
+        <p class="lead">This is a place for enthusiasts to find rides in dream cars. <br></p>
+            <% if current_user %>
+                <p>Click below to find a ride, create a ride, or view your current listings!</p>
+            <% else %>
+                <p>Click below to find a ride, or sign up to create your own!</p>
+            <% end %>
+        <hr class="my-4">
+        
+        <p class="lead">
+          <%= link_to 'View Rides', rides_path, class: "btn btn-primary btn-lg" %>
+          <% if current_user %>
+          <%= link_to 'Create a Ride', new_ride_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to 'My Rides', class: "btn btn-primary btn-lg" %>
+        <% end %>
+        </p>
+      </div>
