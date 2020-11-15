@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rides</h1>
+<h1>Drives</h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>User</th>
@@ -34,8 +34,25 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
-<%= link_to 'New Ride', new_ride_path %>
+<div class="row">
+<% @rides.each do |ride| %>
+<div class="col-md-4">
+
+<div class="card" style="width: 18rem;">
+  <%= cl_image_tag(ride.image.key, :width=>283, :crop=>"scale", cloud_name: 'jcbslmn', class: "card-img-top") %>
+  <div class="card-body">
+    <h5 class="card-title"><%= ride.first_name %> </h5>
+    <p class="card-text"> <%= ride.details %></p>
+    <%= link_to 'View Drive', ride, class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+
+  <% end %>
+
+
+</div>

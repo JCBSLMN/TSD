@@ -13,9 +13,14 @@
 
 
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :location %>
     <%= form.text_field :location %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.select(:location, ['brisbane','sydney']) %>
   </div>
 
   <div class="field">

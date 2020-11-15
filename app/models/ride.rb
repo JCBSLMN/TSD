@@ -8,6 +8,7 @@ class Ride < ApplicationRecord
   validates :details, presence: true
   validates :cost, presence: true, numericality: true
   validates :duration, presence: true, numericality: true
+  validates :image, presence: true
   
 end
 

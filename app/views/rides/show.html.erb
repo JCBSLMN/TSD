@@ -1,49 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @ride.user_id %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @ride.location %>
-</p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @ride.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @ride.last_name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @ride.email %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @ride.details %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @ride.duration %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @ride.cost %>
-</p>
-
-<p>
-  <strong>Image:</strong>
+<div class="jumbotron">
   <%= cl_image_tag(@ride.image.key, :width=>283, :crop=>"scale", cloud_name: 'jcbslmn') %>
-</p>
+  <p class="lead">Driver: <%= @ride.first_name %> <%= @ride.last_name %> </p>
+  <hr class="my-4">
+  <p>
+    <strong>Location:</strong>
+    <%= @ride.location %>
+  </p>
+  
+  
+  <p>
+    <strong>Email:</strong>
+    <%= @ride.email %>
+  </p>
+  
+  <p>
+    <strong>Details:</strong>
+    <%= @ride.details %>
+  </p>
+  
+  <p>
+    <strong>Duration:</strong>
+    <%= @ride.duration %>
+  </p>
+  
+  <p>
+    <strong>Cost:</strong>
+    <%= @ride.cost %>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
 
-<%= link_to 'Edit', edit_ride_path(@ride) %> |
+  <%= link_to 'Edit', edit_ride_path(@ride) %> |
+<%= link_to 'Destroy', @ride, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', rides_path %>
+</div>
