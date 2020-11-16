@@ -1,11 +1,12 @@
 
     <div class="jumbotron">
-        <h1 class="display-4">Welcome to The Sunday Drive!</h1>
-        <p class="lead">This is a place for enthusiasts to find rides in dream cars. <br></p>
+        <h1 class="display-4">Welcome to The Sunday Drive.</h1>
+        <p class="lead">This is a place for people to find drives in dream cars. <br></p>
             <% if current_user %>
-                <p>Click below to find a ride, create a ride, or view your current listings!</p>
+                <p>Click below to find a drive or create your own.</p>
             <% else %>
-                <p>Click below to find a ride, or sign up to create your own!</p>
+                <p>Click below to find a drive. </br>
+                Join the community for $20 to create your own.</p>
             <% end %>
         <hr class="my-4">
         
@@ -13,6 +14,13 @@
           <%= link_to 'View Drives', rides_path, class: "btn btn-primary btn-lg" %>
           <% if current_user %>
           <%= link_to 'Create a Drive', new_ride_path, class: "btn btn-primary btn-lg" %>
+        <% else %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
         <% end %>
         </p>
       </div>
+
+
+
+
+     
