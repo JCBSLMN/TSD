@@ -11,9 +11,10 @@
         <hr class="my-4">
         
         <p class="lead">
-          <%= link_to 'View Drives', rides_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to 'View all Drives', rides_path, class: "btn btn-primary btn-lg" %>
           <% if current_user %>
           <%= link_to 'Create a Drive', new_ride_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to 'My Drives', my_rides_path, class: "btn btn-primary btn-lg" %>
         <% else %>
         <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
         <% end %>

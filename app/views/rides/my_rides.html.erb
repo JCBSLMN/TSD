@@ -1,0 +1,18 @@
+<div class="row">
+    <% @my_rides.each do |ride| %>
+    <div class="col-md-4">
+    
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag(ride.image.key, :width=>283, :crop=>"scale", cloud_name: 'jcbslmn', class: "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title"><%= ride.first_name %> </h5>
+        <p class="card-text"> <%= ride.details %></p>
+        <%= link_to 'View Drive', ride, class: "btn btn-primary" %>
+      </div>
+    </div>
+    </div>
+    
+      <% end %>
+    
+    
+    </div>

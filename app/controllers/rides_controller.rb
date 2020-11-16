@@ -3,6 +3,10 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :edit, :update, :destroy, :buy]
 
 
+  def my_rides
+    @my_rides = Ride.where(user_id: current_user) 
+  end
+
   # GET /rides
   # GET /rides.json
   def index
@@ -23,6 +27,9 @@ class RidesController < ApplicationController
   def edit
   end
 
+  
+
+
   # POST /rides
   # POST /rides.json
   def create
@@ -38,6 +45,8 @@ class RidesController < ApplicationController
         format.json { render json: @ride.errors, status: :unprocessable_entity }
       end
     end
+
+  
   end
 
   # PATCH/PUT /rides/1
@@ -63,6 +72,7 @@ class RidesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
 
 def buy
