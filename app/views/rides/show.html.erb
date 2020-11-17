@@ -1,8 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
-
-
 
 <div class="jumbotron">
   <%= cl_image_tag(@ride.image.key, :width=>283, :crop=>"scale", cloud_name: 'jcbslmn') %>
@@ -26,20 +21,21 @@
   
   <p>
     <strong>Duration:</strong>
-    <%= @ride.duration %>
+    <%= @ride.duration %> Hours
   </p>
   
   <p>
     <strong>Cost:</strong>
-    <%= @ride.cost %>
+    $<%= @ride.cost.to_i %>
   </p>
   <p class="lead">
     <button class="btn btn-primary btn-lg" id="pay-button">Book drive</button>
   </p>
-  
 
+<% if current_user && @ride.user_id == @user.id %>
   <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <%= link_to 'Destroy', @ride, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', rides_path %>
 </div>
 

@@ -18,47 +18,48 @@
     <%= form.text_field :location %>
   </div> -->
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :location %>
-    <%= form.select(:location, ['brisbane','sydney']) %>
+    <%= form.select(:location, ['Tokyo', 'le Midi', 'Georgia', 'California', 'Venice', 'Miami'])%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :details %>
-    <%= form.text_area :details %>
+    <%= form.text_area :details, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration, step: 0.25, min: 0 %>
+  <div class="form-group">
+    <%= form.label :duration, 'Duration(in hours)' %>
+    <%= form.number_field :duration, step: 0.25, min: 0, class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :cost %>
-    <%= form.number_field :cost, step: 10, min: 0 %>
+  <div class="form-group">
+    <%= form.label :cost, 'Cost(min $50)' %>
+    <%= form.number_field :cost, min: 50, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
 
-  <div  class="actions">
+  <div class="actions" >
     <%= form.submit %>
   </div>
+
 <% end %>

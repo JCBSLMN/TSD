@@ -1,21 +1,26 @@
 class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:buy]
   before_action :set_ride, only: [:show, :edit, :update, :destroy, :buy]
+  before_action :set_rides, only: [:index, :dashboard ]
 
 
   def my_rides
-    @my_rides = Ride.where(user_id: current_user) 
+    @rides = Ride.where(user_id: current_user) 
+  end
+
+  def dashboard
   end
 
   # GET /rides
   # GET /rides.json
   def index
-    @rides = Ride.all
+    # @rides = Ride.all
   end
 
   # GET /rides/1
   # GET /rides/1.json
   def show
+    @user = current_user
   end
 
   # GET /rides/new
@@ -38,7 +43,7 @@ class RidesController < ApplicationController
 
     respond_to do |format|
       if @ride.save
-        format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
+        format.html { redirect_to my_rides_path, notice: 'Ride was successfully created.' }
         format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }
@@ -112,6 +117,12 @@ end
     def set_ride
       @ride = Ride.find(params[:id])
     end
+
+    def set_rides
+      @rides = Ride.all
+    end
+
+
 
     # Only allow a list of trusted parameters through.
     def ride_params
