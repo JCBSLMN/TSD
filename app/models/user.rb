@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  #assigns default role to new users
   after_create :assign_default_role
   
   rolify
@@ -7,7 +8,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-        def assign_default_role
-          add_role(:normal) if self.roles.blank?
-        end
+
+def assign_default_role
+  add_role(:normal) if self.roles.blank?
+end
+
 end

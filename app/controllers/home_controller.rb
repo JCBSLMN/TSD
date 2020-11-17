@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
+  #homepage
   def index
-    # p success_path
   end
 
   

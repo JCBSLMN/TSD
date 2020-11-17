@@ -3,7 +3,7 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :edit, :update, :destroy, :buy]
   before_action :set_rides, only: [:index, :dashboard ]
 
-
+#defines rides set
   def my_rides
     @rides = Ride.where(user_id: current_user) 
   end
@@ -39,6 +39,7 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = Ride.new(ride_params)
+    # Sets user id hidden value
     @ride.user_id = current_user.id
 
     respond_to do |format|
@@ -79,7 +80,7 @@ class RidesController < ApplicationController
   end
 
 
-
+# stripe scripts
 def buy
   Stripe.api_key = ENV['STRIPE_API_KEY']
   session = Stripe::Checkout::Session.create({
@@ -104,12 +105,14 @@ def buy
     render json: session
 end
 
+# successful payment action
 def success
-  redirect_to '/'
+  redirect_to root_path
 end
 
+# cancel payment action
 def cancel
-  redirect_to '/'
+  redirect_to root_path
 end
 
   private
@@ -118,10 +121,10 @@ end
       @ride = Ride.find(params[:id])
     end
 
+    #set rides
     def set_rides
       @rides = Ride.all
     end
-
 
 
     # Only allow a list of trusted parameters through.
